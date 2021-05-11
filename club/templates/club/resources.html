@@ -4,17 +4,17 @@
 <h1>Resources</h1>
 <table class='table'>
  <tr>
-     <th>Name</th>
+     <th>Topic</th>
      <th>Url</th>
      <th>Description</th>
      <th>Date</th>
-     <th>User</th>
+     <th>By</th>
      
  </tr>
  {% for r in resource_list %}
    <tr>
-       <td>{{ r.resourceName }}</td>
-       <td>{{ r.resourceUrl }}</td>
+       <td>{{ r.resourceName }}</td>      
+       <td><a href="{{ r.resourceUrl }}">{{ r.resourceUrl }}</a></td>
        <td>{{ r.description }}</td>
        <td>{{ r.dateEntered }}</td>
        <td>{{ r.user }}</td>
