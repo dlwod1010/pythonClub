@@ -4,8 +4,7 @@ from django.contrib.auth.models import User
 
 class meeting(models.Model):
     meetingTitle = models.CharField(max_length=255)
-    meetingDate = models.DateField()
-    meetingTime = models.TimeField()
+    meetingDate = models.DateTimeField()
     meetingLocationAt = models.CharField(max_length=255)
     meetingAgenda = models.CharField(max_length=255, null=True, blank=True)
 
@@ -48,8 +47,7 @@ class resource(models.Model):
 class event(models.Model):
     eventTitle = models.CharField(max_length=255)
     eventLocation = models.CharField(max_length=255)
-    eventDate = models.DateField()
-    eventTime = models.TimeField()
+    eventDate = models.DateTimeField()
     eventDescription = models.TextField()
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
 
