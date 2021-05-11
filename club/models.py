@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
 
 class meeting(models.Model):
     meetingTitle = models.CharField(max_length=255)
@@ -34,7 +32,6 @@ class meetingMinutes(models.Model):
 
 class resource(models.Model):
     resourceName = models.CharField(max_length=255)
-    resourceType = models.CharField(max_length=255)
     resourceUrl = models.URLField()
     dateEntered = models.DateField()
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
