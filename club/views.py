@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from .models import meeting, meetingMinutes, resource, event
 from .forms import meetingForm, resourceForm
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     return render(request, 'club/index.html')
@@ -32,7 +34,7 @@ def meetingdetails(request, id):
 
 
 # def eventdetails(request, )
-
+@login_required
 def newMeeting(request):
     form = meetingForm
     if request.method == 'POST':
@@ -45,6 +47,8 @@ def newMeeting(request):
         form = meetingForm()
     return render(request, 'club/newmeeting.html', {'form': form})
 
+
+@login_required  # make it to login required
 def newResource(request):
     form = resourceForm
     if request.method == 'POST':
@@ -56,3 +60,11 @@ def newResource(request):
     else:
         form = resourceForm()
     return render(request, 'club/newresource.html', {'form': form})
+
+
+def loginmessage(request):
+    return render(request, 'club/loginmessage.html')
+
+
+def logoutmessage(request):
+    return render(request, 'club/logoutmessage.html')
